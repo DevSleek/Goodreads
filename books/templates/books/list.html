@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Books List Page{% endblock %}
+{% block content %}
+
+    <h1>Books</h1>
+
+    {% if books %}
+        <ul>
+            {% for book in books %}
+                <li><a href="{% url 'books:books-detail' book.pk%}" style="text-decoration: none; hover:red">{{ book.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        No books found.
+    {% endif %}
+
+{% endblock %}
