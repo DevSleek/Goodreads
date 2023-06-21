@@ -21,3 +21,4 @@ class UserUpdateFrom(forms.ModelForm):
         model = CustomUser
         fields = ('username', 'first_name', 'last_name', 'email', 'profile_picture')
 
+
