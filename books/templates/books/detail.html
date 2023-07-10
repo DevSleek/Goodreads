@@ -3,9 +3,17 @@
 {% block title %}Book Detail Page{% endblock %}
 {% block content %}
 
-    <h3>{{ book.title }}</h3>
+    <div class="row">
 
-    <img src="{{ book.cover_picture.url }}" alt="cover picture" class="cover_image">
+        <div class="col-2">
+            <img class="cover_image" alt="cover picture" src="{{ book.cover_picture.url }}">
+        </div>
 
-    <p>{{ book.description }}</p>
+        <div class="col-6">
+            <h3>{{ book.title }}</h3>
+            <p>{{ book.description }}</p>
+        </div>
+    </div>
+
+
 {% endblock %}
