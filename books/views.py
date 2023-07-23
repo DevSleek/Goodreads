@@ -50,8 +50,8 @@ class AddReviewView(LoginRequiredMixin, View):
 
         if review_form.is_valid():
             BookReview.objects.create(
-                book_id=book,
-                user_id=request.user,
+                book=book,
+                user=request.user,
                 stars_given=review_form.cleaned_data['stars_given'],
                 comment=review_form.cleaned_data['comment']
             )

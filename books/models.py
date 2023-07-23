@@ -36,8 +36,8 @@ class BookAuthor(models.Model):
 
 
 class BookReview(models.Model):
-    user_id = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    book_id = models.ForeignKey(Book, on_delete=models.CASCADE)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
     comment = models.TextField()
     stars_given = models.IntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(5)]
@@ -45,7 +45,7 @@ class BookReview(models.Model):
     created_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return f"{self.stars_given} by {self.user_id.username}"
+        return f"{self.stars_given} by {self.user.username}"
 
 
 
