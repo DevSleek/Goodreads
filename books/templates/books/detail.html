@@ -48,6 +48,10 @@
 
                 <div class="col-7 ms-4">
                     <b>{{ review.user_id.username }}</b> rated it {{ review.stars_given }} stars <span class="fw-lighter">{{ review.created_at }}</span>
+                    {% if review.user_id.username == request.user.username %}
+                        <a href="{% url 'books:reviews-edit' book.id review.id %}"><i class="bi bi-pen"></i></a>
+                        <a href="{% url 'books:review-confirm-delete' book.id review.id %}"><i class="bi bi-trash"></i></a>
+                    {% endif %}
                     <p class="mt-2 font-monospace">{{ review.comment }}</p>
                 </div>
             </div>
