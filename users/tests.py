@@ -160,16 +160,16 @@ class ProfileTestCase(TestCase):
         response = self.client.post(
             reverse('users:profile-edit'),
             data={
-                'username': 'Sukhrob',
+                'username': 'sukhrob',
                 'first_name': 'Suhrob',
-                'last_name': 'Turaev',
+                'last_name': 'Turayev',
                 'email': 'suhrobturaev200@gmail.com'
             }
         )
-        user = CustomUser.objects.get(pk=user.pk)
-        # OR user.refresh_from_db()
+        # user = CustomUser.objects.get(pk=user.pk)
+        user.refresh_from_db()
 
-        self.assertEqual(user.username, 'Sukhrob')
+        self.assertEqual(user.last_name, 'Turayev')
         self.assertEqual(response.url, reverse('users:profile'))
 
 
